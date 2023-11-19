@@ -44,8 +44,6 @@ cp  /data/step/certs/root_ca.crt $(bashio::config 'root_ca_path')
 
 bashio::log.info "Intermediate certificate:"
 cat /data/step/certs/intermediate_ca.crt
-cp  /data/step/certs/intermediate_ca.crt $(bashio::config 'intermediate_ca_path')
-
 
 bashio::log.info 'Start step ca ...'
 step-ca --password-file /tmp/password_file /root/.step/config/ca.json
