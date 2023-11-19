@@ -30,13 +30,19 @@ if [ ! -f /root/.step/config/ca.json ] || ! diff /data/options.json /data/last_o
                                   --provisioner "homeassistant@${hostname}" \
                                   --address ":9000" \
                                   --password-file /tmp/password_file >/dev/null)
+  
+  step-ca --password-file /tmp/password_file /root/.step/config/ca.json &
+  sleep 1
+  bashio::log.info $(step ca token --password-file /tmp/password_file homeassistant >/data/token)
+  killall step-ca
 
-  step ca provisioner add homeassistant --type ACME
+  bashio::log.info $(step ca provisioner add homeassistant --type ACME)
   cp /data/options.json /data/last_options.json
 fi
 
 fingerprint=$(cat /data/step/config/defaults.json | grep fingerprint | sed 's/.*"fingerprint": "//; s/",//')
 bashio::log.info "Root fingerprint: ${fingerprint}"
+bashio::log.info "Root token: $(cat /data/token)"
 
 bashio::log.info "Root certificate:"
 cat /data/step/certs/root_ca.crt
