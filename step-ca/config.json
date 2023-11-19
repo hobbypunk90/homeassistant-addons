@@ -29,11 +29,15 @@
     ],
     "options": {
       "password": "",
-      "debug": false
+      "debug": false,
+      "root_ca_path": "/ssl/root_ca.crt",
+      "intermediate_ca_path": "/ssl/intermediate_ca.crt"
     },
     "schema": {
       "password": "password",
-      "debug": "bool"
+      "debug": "bool",
+      "root_ca_path": "str",
+      "intermediate_ca_path": "str"
     }
   }
   
