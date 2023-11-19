@@ -26,14 +26,14 @@ if [ ! -f /root/.step/config/ca.json ] || ! diff /data/options.json /data/last_o
   ip_addresses=$(echo ${network_info} | jq '[ [.interfaces[]] | .[].ipv4.address[] ] | join(",")' | tr -d '"')
 
   bashio::log.info $(step ca init --name "${hostname}" \
-                                  --dns "${hostname},${ip_addresses}" \
+                                  --dns "$(hostname),${hostname},${ip_addresses}" \
                                   --provisioner "homeassistant@${hostname}" \
                                   --address ":9000" \
                                   --password-file /tmp/password_file >/dev/null)
   
-  step-ca --password-file /tmp/password_file /root/.step/config/ca.json &
-  sleep 1
-  bashio::log.info $(step ca token --password-file /tmp/password_file homeassistant >/data/token)
+  step-ca --password-file /tmp/password_file /root/.step/config/ca.json >/dev/null &
+  sleep 2
+  bashio::log.info $(step ca token --password-file /tmp/password_file "${hostname}" >/data/token)
   killall step-ca
 
   bashio::log.info $(step ca provisioner add homeassistant --type ACME)
