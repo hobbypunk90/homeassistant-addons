@@ -72,7 +72,6 @@
     "POSTGRES_DB": "/config/addons_config/tandoor_recipes/recipes.db",
     "TRUSTED_PROXIES": "**"
   },
-  "image": "ghcr.io/alexbelgium/tandoor_recipes-{arch}",
   "map": [
     "config:rw",
     "share:rw",
@@ -111,7 +110,7 @@
   ],
   "slug": "tandoor_recipes",
   "udev": true,
-  "url": "https://github.com/alexbelgium/hassio-addons",
+  "url": "https://github.com/hobbypunk90/Hassio-Addons/",
   "version": "1.5.15",
   "webui": "http://[HOST]:[PORT:8080]"
 }
