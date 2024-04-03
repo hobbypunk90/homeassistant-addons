@@ -49,11 +49,12 @@ case $(bashio::config 'DB_TYPE') in
             bashio::exit.nok "Please ensure it is installed and started"
         fi
 
-        # Install apps
+        bashio::log.info "Install mariadb stuff..."
         apk add --no-cache postgresql-libs gettext zlib libjpeg libxml2-dev libxslt-dev mysql-client mariadb-connector-c-dev mariadb-dev >/dev/null
 
         # Install mysqlclient
-        pip install pymysql &>/dev/null
+        bashio::log.info "Install python mysqlclient..."
+        pip install mysqlclient &>/dev/null
 
         export DB_ENGINE=django.db.backends.mysql
         export POSTGRES_HOST=$(bashio::services "mysql" "host") && bashio::log.blue "POSTGRES_HOST=$POSTGRES_HOST"
