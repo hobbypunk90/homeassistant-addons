@@ -1,3 +1,6 @@
 [submodule "sane"]
 	path = sane
 	url = https://github.com/hobbypunk90/homeassistant-addon-sane.git
+[submodule "cups-airprint"]
+	path = cups-airprint
+	url = https://github.com/hobbypunk90/homeassistant-addon-cups-airprint.git
