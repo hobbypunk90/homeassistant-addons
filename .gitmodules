@@ -4,3 +4,6 @@
 [submodule "cups-airprint"]
 	path = cups-airprint
 	url = https://github.com/hobbypunk90/homeassistant-addon-cups-airprint.git
+[submodule "scan2mail"]
+	path = scan2mail
+	url = https://github.com/hobbypunk90/homeassistant-addon-scan2mail.git
