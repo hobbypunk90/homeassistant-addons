@@ -12,11 +12,10 @@ arch:
   - amd64
   - i386
 homeassistant: 2021.11.0
-startup: application
+startup: services
 init: false
 boot: auto
-hassio_api: true
-hassio_role: default
+watchdog: http://[HOST]:[PORT:9000]/
 ports:
   9000/tcp: 9000
 ports_description:
