@@ -1,5 +1,5 @@
 name: step-ca
-version: 0.28.3-1
+version: 0.28.3
 slug: step-ca
 description: >-
   step-ca is an online Certificate Authority (CA) for secure, automated X.509
