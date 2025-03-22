@@ -1,9 +1,11 @@
 #!/usr/bin/env bashio
 
 mkdir -p /config/step
-ln -s /config/step /root/.step
+if [ -d /root/.step ]; then 
+  rm -fr /root/.step
+fi
 
-sleep 600
+ln -s /config/step /root/.step
 
 bashio::config.require 'password'
 
