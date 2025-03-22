@@ -1,5 +1,8 @@
 #!/usr/bin/env bashio
 
+sleep 10
+bashio::log.info "Starting step-c server"
+
 mkdir -p /config/step
 if [ -d /root/.step ]; then 
   rm -fr /root/.step
