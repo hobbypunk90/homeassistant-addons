@@ -10,3 +10,6 @@
 [submodule "step-ca"]
 	path = step-ca
 	url = https://github.com/hobbypunk90/homeassistant-addon-step-ca.git
+[submodule "luci2mqtt"]
+	path = luci2mqtt
+	url = https://github.com/hobbypunk90/homeassistant-addon-luci2mqtt.git
