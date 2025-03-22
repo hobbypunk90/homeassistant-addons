@@ -13,7 +13,6 @@ arch:
   - i386
 homeassistant: 2021.11.0
 startup: services
-init: false
 boot: auto
 watchdog: http://[HOST]:[PORT:9000]/
 ports:

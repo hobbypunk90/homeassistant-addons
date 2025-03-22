@@ -1,6 +1,5 @@
 #!/usr/bin/env bashio
 
-sleep 10
 bashio::log.info "Starting step-c server"
 
 mkdir -p /config/step
