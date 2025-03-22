@@ -3,6 +3,8 @@
 mkdir -p /config/step
 ln -s /config/step /root/.step
 
+sleep 600
+
 bashio::config.require 'password'
 
 echo "Debug: $(bashio::config 'debug')"
