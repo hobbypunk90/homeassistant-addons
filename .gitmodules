@@ -7,3 +7,6 @@
 [submodule "scan2mail"]
 	path = scan2mail
 	url = https://github.com/hobbypunk90/homeassistant-addon-scan2mail.git
+[submodule "step-ca"]
+	path = step-ca
+	url = https://github.com/hobbypunk90/homeassistant-addon-step-ca.git
