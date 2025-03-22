@@ -1,10 +1,10 @@
 #!/usr/bin/env bashio
 
-mkdir -p /data/step
-ln -s /data/step /root/.step
+mkdir -p /config/step
+ln -s /config/step /root/.step
 
-if ! [ -f /data/last_options.json ]; then
-  touch /data/last_options.json
+if ! [ -f /config/last_options.json ]; then
+  touch /config/last_options.json
 fi
 
 bashio::config.require 'password'
@@ -17,8 +17,8 @@ fi
 
 echo $(bashio::config 'password') > /tmp/password_file
 
-if [ ! -f /root/.step/config/ca.json ] || ! diff /data/options.json /data/last_options.json &>/dev/null; then
-  rm -fr /data/step/*
+if [ ! -f /root/.step/config/ca.json ] || ! diff /config/options.json /config/last_options.json &>/dev/null; then
+  rm -fr /config/step/*
   bashio::log.info 'Initialize step ca ...'
 
   hostname=$(bashio::host.hostname)
@@ -33,23 +33,23 @@ if [ ! -f /root/.step/config/ca.json ] || ! diff /data/options.json /data/last_o
   
   step-ca --password-file /tmp/password_file /root/.step/config/ca.json >/dev/null &
   sleep 2
-  bashio::log.info $(step ca token --password-file /tmp/password_file "${hostname}" >/data/token)
+  bashio::log.info $(step ca token --password-file /tmp/password_file "${hostname}" >/config/token)
   killall step-ca
 
   bashio::log.info $(step ca provisioner add homeassistant --type ACME)
-  cp /data/options.json /data/last_options.json
+  cp /config/options.json /config/last_options.json
 fi
 
-fingerprint=$(cat /data/step/config/defaults.json | grep fingerprint | sed 's/.*"fingerprint": "//; s/",//')
+fingerprint=$(cat /config/step/config/defaults.json | grep fingerprint | sed 's/.*"fingerprint": "//; s/",//')
 bashio::log.info "Root fingerprint: ${fingerprint}"
-bashio::log.info "Root token: $(cat /data/token)"
+bashio::log.info "Root token: $(cat /config/token)"
 
 bashio::log.info "Root certificate:"
-cat /data/step/certs/root_ca.crt
-cp  /data/step/certs/root_ca.crt $(bashio::config 'root_ca_path')
+cat /config/step/certs/root_ca.crt
+cp  /config/step/certs/root_ca.crt $(bashio::config 'root_ca_path')
 
 bashio::log.info "Intermediate certificate:"
-cat /data/step/certs/intermediate_ca.crt
+cat /config/step/certs/intermediate_ca.crt
 
 bashio::log.info 'Start step ca ...'
 step-ca --password-file /tmp/password_file /root/.step/config/ca.json

@@ -10,8 +10,10 @@ ENV LANG C.UTF-8
 COPY --from=builder /usr/local/bin/step /usr/local/bin/step
 COPY --from=builder /usr/local/bin/step-ca /usr/local/bin/step-ca
 
-COPY start.sh /app/start.sh
-ENTRYPOINT ["/app/start.sh"]
+# Copy root filesystem
+COPY rootfs /
+RUN chmod a+x /run.sh
+CMD ["/run.sh"]
 
 HEALTHCHECK CMD step ca health 2>/dev/null | grep "^ok" >/dev/null
 
