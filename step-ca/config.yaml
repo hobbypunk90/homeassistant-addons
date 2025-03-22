@@ -13,6 +13,7 @@ arch:
   - i386
 homeassistant: 2021.11.0
 startup: application
+init: false
 ports:
   9000/tcp: 9000
 ports_description:
