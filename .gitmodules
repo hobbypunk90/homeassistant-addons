@@ -1,15 +1,6 @@
-[submodule "sane"]
-	path = sane
-	url = https://github.com/hobbypunk90/homeassistant-addon-sane.git
-[submodule "cups-airprint"]
-	path = cups-airprint
-	url = https://github.com/hobbypunk90/homeassistant-addon-cups-airprint.git
-[submodule "scan2mail"]
-	path = scan2mail
-	url = https://github.com/hobbypunk90/homeassistant-addon-scan2mail.git
 [submodule "step-ca"]
 	path = step-ca
-	url = https://github.com/hobbypunk90/homeassistant-addon-step-ca.git
+	url = ../homeassistant-addon-step-ca.git
 [submodule "openwrt2mqtt"]
 	path = openwrt2mqtt
-	url = https://github.com/hobbypunk90/homeassistant-addon-openwrt2mqtt.git
+	url = ../homeassistant-addon-openwrt2mqtt.git
