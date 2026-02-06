@@ -1,9 +1,9 @@
-[submodule "bambuddy"]
-	path = bambuddy
-	url = ../homeassistant-addon-bambuddy.git
 [submodule "step-ca"]
 	path = step-ca
 	url = ../homeassistant-addon-step-ca.git
 [submodule "openwrt2mqtt"]
 	path = openwrt2mqtt
 	url = ../homeassistant-addon-openwrt2mqtt.git
+[submodule "bambuddy"]
+	path = bambuddy
+	url = ../homeassistant-addon-bambuddy.git
