@@ -1,3 +1,6 @@
+[submodule "bambuddy"]
+	path = bambuddy
+	url = ../homeassistant-addon-bambuddy.git
 [submodule "step-ca"]
 	path = step-ca
 	url = ../homeassistant-addon-step-ca.git
